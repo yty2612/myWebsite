@@ -7,7 +7,7 @@
         <div class="infoBox">
           <div class="formItem">
             <img src="../assets/img/account-icon.png" class="imgHead">
-            <Input v-model="userName" type="text" placeholder="请输入账户名称" class="input"/>
+            <Input v-model="userName" type="text" placeholder="请输入账户" class="input"/>
           </div>
           <div class="formItem">
             <img src="../assets/img/password-icon.png" class="imgHead">
