@@ -3,10 +3,10 @@ import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
 
-const testRouterMap = [
+export const testRouterMap = [
   {
     path: "/",
-    redirect: "/index",
+    redirect: "/mainPage",
   },
   // 登陆页
   {
@@ -24,6 +24,11 @@ const testRouterMap = [
     path: '/mainPage',
     name: '我的主页',
     component: () => import('./views/components/mainPage.vue')
+  },
+  {
+    path: '/textPage',
+    name: '测试页面',
+    component: () => import('./views/textPage.vue')
   },
 ]
 

@@ -24,6 +24,9 @@
       }
 
     },
+    created(){
+      console.log("yes1");
+    },
     methods:{
       routerJumper(){
         //新开窗口跳转

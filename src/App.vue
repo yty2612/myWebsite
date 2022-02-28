@@ -1,6 +1,6 @@
 <template>
-  <div class="index">
-    <div class="menuBox">
+  <div class="pageBox">
+    <div class="menuBox" v-if="showMenu">
       <div class="pageTitle">
         <span class="ownIcon">LzL</span>
         <Icon type="md-heart-outline" />
@@ -16,7 +16,7 @@
             内容管理
           </template>
           <MenuItem name="pageA1">
-            <Icon type="md-document" />
+            <Icon type="md-document" to="/textPage" replace/>
             文章管理
           </MenuItem>
           <MenuItem name="pageA2">
@@ -40,17 +40,28 @@
         </Submenu>
       </Menu>
     </div>
+    <div class="content">
+      <div class="mainContent">
+        <router-view />
+      </div>
+      <Footer/>
+    </div>
   </div>
 </template>
 <script>
   import mainPage from './views/components/mainPage.vue'
+  import Footer from './views/components/Footer.vue'
+  import { useRouter } from 'vue-router'
   export default {
     components: {
       mainPage,
+      Footer,
+      useRouter
     },
     name: 'index',
     data(){
       return{
+        showMenu:true,
       }
     },
     created(){
@@ -59,31 +70,47 @@
   }
 </script>
 <style scoped lang="scss">
-  .menuBox{
-    height: 100vh;
-    width: 250px;
-    overflow: hidden;
-    overflow-y:auto;
-    background-color:#515a6e ;
-    .pageTitle{
-      height: 50px;
-      font-size: 20px;
-      color: #fff;
-      line-height: 50px;
-      .ownIcon{
-        font-size: 25px;
-        color: aqua;
-        font-weight: bolder;
-        margin-right: 10px;
-        font-style:italic
+  .pageBox{
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    background-color: #ffffff;
+    .menuBox{
+      height: 100vh;
+      width: 250px;
+      overflow: hidden;
+      overflow-y:auto;
+      background-color:#515a6e ;
+      .pageTitle{
+        height: 50px;
+        font-size: 20px;
+        color: #fff;
+        line-height: 50px;
+        .ownIcon{
+          font-size: 25px;
+          color: aqua;
+          font-weight: bolder;
+          margin-right: 10px;
+          font-style:italic
+        }
+      }
+    }
+    .content{
+      display: flex;
+      flex-direction: column;
+      width:100%;
+      min-height: 100vh;
+      overflow: hidden;
+      .mainContent{
+        height: calc(100vh - 50px);
+        overflow: auto;
+        padding: 10px;
       }
     }
   }
+
 </style>
 <style lang="scss">
-  .ivu-input-wrapper{
-    width: 90% !important;
-  }
   /*!* iphone6s *!*/
   /*@media screen and (min-width: 375px) and (-webkit-device-pixel-ratio: 3) {*/
   /*body {background-color: #0FF000;}*/
@@ -92,6 +119,5 @@
   /*@media screen and (min-width: 1100px) {*/
   /*body {background-color: black;}*/
   /*}*/
-
 </style>
 
