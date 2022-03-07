@@ -6,7 +6,7 @@ Vue.use(VueRouter)
 export const testRouterMap = [
   {
     path: "/",
-    redirect: "/mainPage",
+    redirect: "/index",
   },
   // 登陆页
   {
@@ -21,14 +21,45 @@ export const testRouterMap = [
     component: () => import('./views/index.vue')
   },
   {
-    path: '/mainPage',
-    name: '我的主页',
-    component: () => import('./views/components/mainPage.vue')
+    path: "/otherPage",
+    name: "其他功能",
+    component: () => import("./views/routerViewComponent.vue"),//子路由这里必须加一个这个文件，否则渲染不出来
+    children: [
+      {
+        path: "waitMake",
+        name: "更多需求",
+        component: () => import("./views/otherPage/waitMake.vue")
+      },
+    ],
   },
   {
-    path: '/textPage',
-    name: '测试页面',
-    component: () => import('./views/textPage.vue')
+    path: "/myPage",
+    name: "我的地盘",
+    component: () => import("./views/routerViewComponent.vue"),
+    children: [
+      {
+        path: "mainPage",
+        name: "我的主页",
+        component: () => import("./views/myPage/mainPage.vue")
+      },
+      {
+        path: "contentOp",
+        name: "内容管理",
+        component: () => import("./views/routerViewComponent.vue"),//子路由这里必须加一个这个文件，否则渲染不出来
+        children: [
+          {
+            path: "articleOp",
+            name: "文章管理",
+            component: () => import("./views/myPage/textPage.vue")
+          },
+          {
+            path: "workShow",
+            name: "作品展示",
+            component: () => import("./views/myPage/workShow.vue")
+          },
+        ],
+      },
+    ],
   },
 ]
 

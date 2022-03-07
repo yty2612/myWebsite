@@ -1,10 +1,11 @@
 <template>
-  <div>2022022810.31</div>
+  <div>我是workShow</div>
+  
 </template>
 
 <script>
   export default {
-    name: "textPage"
+    name: "workShow"
   }
 </script>
 

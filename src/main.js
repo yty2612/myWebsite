@@ -4,9 +4,12 @@ import router from './router'
 import $ from "jquery"
 import _ from 'lodash'
 import store from './store'
-import ViewUI from 'view-design'
-import 'view-design/dist/styles/iview.css' //iview样式
-import {Spin} from 'view-design'
+// import ViewUI from 'view-design'
+import ElementUI  from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'; //element样式
+// import 'view-design/dist/styles/iview.css' //iview样式
+import {Spin} from 'element-ui'
+// import {Spin} from 'view-design'
 // import './global/iViewTheme.less'
 /**
  * @description 注入 echarts 图表,全局控制，只加载一次主题
@@ -14,6 +17,14 @@ import {Spin} from 'view-design'
  * @return {object} $echarts
  */
 import echarts from "echarts";
+/** 设计稿主题款式 dark - 暗黑款式 */
+import dark from './components/echarts/dark.json'
+echarts.registerTheme('dark', dark)
+import './global/echartConfig'
+/*封装的echarts组件*/
+import echart from './components/echarts/echarts.vue'
+Vue.use(echart)
+
 /**
  * 引入地图组件
  */
@@ -29,8 +40,9 @@ VueAMap.initAMapApiLoader({
   uiVersion: '1.0.1'
 })
 Vue.config.productionTip = false
-Vue.use(ViewUI)
+// Vue.use(ViewUI)
 Vue.use(VueAMap)
+Vue.use(ElementUI)
 
 // 映射全局对象
 window.$ = window.jQuery = $ //jQuery对象

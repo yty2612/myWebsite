@@ -1,9 +1,6 @@
 <template>
   <div class="footer">
-    <div class="left">Copyright001 © 2021  重庆严小哥有限公司 渝ICP备 12004798号-1</div>
-    <div class="right">
-      <a target="_blank" href="https://www.baidu.com/">better_yty</a>
-    </div>
+    <div class="left" style="margin-left: 30px">Copyright001 © 2021  重庆严小哥有限公司 渝ICP备 12004798号-1</div>
   </div>
 </template>
 
