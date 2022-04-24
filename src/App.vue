@@ -83,7 +83,6 @@
   // import { useRouter } from 'vue-router'
   export default {
     components: {
-      // mainPage,
       Footer,
       // useRouter
     },

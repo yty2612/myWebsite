@@ -15,7 +15,7 @@ export default {
     height: 50px;
     border-top: 1px solid #e9e9e9;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 20px;
   }
